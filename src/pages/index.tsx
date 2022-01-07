@@ -9,7 +9,7 @@ export default function Index() {
   if (user) {
     return (
       <div>
-        Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+        Welcome my friend, {user.name}! <a href="/api/auth/logout">Logout</a>
       </div>
     )
   }
