@@ -19,7 +19,7 @@ const sentryWebpackPluginOptions = {
   // NOTE: Even though the auto-generated comment directly above
   // says not to, it seems like we have to add it
   // See: https://github.com/getsentry/sentry-webpack-plugin/issues/334
-  authToken: 'foo',
+  // authToken: 'foo',
 
   silent: true // Suppresses all logs
   // For all available options, see:
