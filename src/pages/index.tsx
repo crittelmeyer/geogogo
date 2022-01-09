@@ -32,6 +32,7 @@ const Index = ({ apple, beta }: IndexProps) => {
 
   const handleClick = () => {
     console.log(`do it! ${apple} ${beta}`)
+    console.log(process.env.NEXT_PUBLIC_SENTRY_AUTH_TOKEN)
   }
 
   const handleKeyUp = () => {
