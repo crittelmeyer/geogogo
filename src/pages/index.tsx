@@ -6,7 +6,16 @@ type FooProps = {
   bar: string
 }
 
-const FooBar = ({ name }: FooProps) => <a href="/foo" target="_blank">{`hey, ${name}`}</a>
+const FooBar = ({ name }: FooProps) => (
+  <button
+    type="button"
+    onClick={() => {
+      throw new Error('Sentry Frontend Error')
+    }}
+  >
+    {`Throw error, ${name}`}
+  </button>
+)
 
 type IndexProps = {
   apple?: string
