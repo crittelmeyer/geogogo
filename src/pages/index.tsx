@@ -1,13 +1,12 @@
 import { useUser } from '@auth0/nextjs-auth0'
+import Link from 'next/link'
 
 type FooProps = {
   name: string
   bar: string
 }
 
-const FooBar = ({ name }: FooProps) => {
-  return <a href="/foo" target="_blank">{`hey, ${name}`}</a>
-}
+const FooBar = ({ name }: FooProps) => <a href="/foo" target="_blank">{`hey, ${name}`}</a>
 
 type IndexProps = {
   apple?: string
@@ -37,7 +36,7 @@ const Index = ({ apple, beta }: IndexProps) => {
     return (
       <div role="button" tabIndex={0} onClick={handleClick} onKeyUp={handleKeyUp}>
         {`Welcome my friend, ${user.name}! `}
-        <a href="/api/auth/logout">{'Logout'}</a>
+        <Link href="/api/auth/logout">{'Logout'}</Link>
         {items.map((item) => (
           <FooBar key={item.id} bar="coo" name={item.name} />
         ))}
@@ -45,7 +44,7 @@ const Index = ({ apple, beta }: IndexProps) => {
     )
   }
 
-  return <a href="/api/auth/login">{'Login'}</a>
+  return <Link href="/api/auth/login">{'Login'}</Link>
 }
 
 Index.defaultProps = {

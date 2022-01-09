@@ -4,16 +4,7 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
-    'prettier'
-  ],
-  parser: '@typescript-eslint/parser',
+  extends: ['next/core-web-vitals', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -21,9 +12,10 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: 'module'
   },
-  plugins: ['prettier', 'react', '@typescript-eslint', 'jsx-a11y'],
+  plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
+    'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: false }],
     'linebreak-style': ['error', 'unix'],
     'react/boolean-prop-naming': ['error', { validateNested: true }],
     'react/default-props-match-prop-types': 'error',
