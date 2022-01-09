@@ -4,18 +4,7 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: [
-    // 'eslint:recommended',
-    // 'plugin:@typescript-eslint/recommended',
-    // 'plugin:jsx-a11y/recommended',
-    // 'plugin:react/recommended',
-    // 'plugin:react/jsx-runtime',
-    // 'plugin:react-hooks/recommended',
-    // 'next',
-    'next/core-web-vitals',
-    'prettier'
-  ],
-  // parser: '@typescript-eslint/parser',
+  extends: ['plugin:jsx-a11y/recommended', 'plugin:react-hooks/recommended', 'next/core-web-vitals', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -54,10 +43,4 @@ module.exports = {
     'react/jsx-sort-default-props': 'error',
     'react/jsx-sort-props': ['error', { callbacksLast: true, shorthandFirst: true, reservedFirst: true }]
   }
-  // settings: {
-  //   react: {
-  //     version: 'detect'
-  //   },
-  //   linkComponents: [{ name: 'Link', linkAttribute: 'href' }]
-  // }
 }

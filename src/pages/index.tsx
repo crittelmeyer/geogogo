@@ -34,7 +34,7 @@ const Index = ({ apple, beta }: IndexProps) => {
 
   if (user) {
     return (
-      <div tabIndex={0} onClick={handleClick} onKeyUp={handleKeyUp}>
+      <div role="button" tabIndex={0} onClick={handleClick} onKeyUp={handleKeyUp}>
         {`Welcome my friend, ${user.name}! `}
         <Link href="/api/auth/logout">{'Logout'}</Link>
         {items.map((item) => (
