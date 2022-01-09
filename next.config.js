@@ -16,11 +16,6 @@ const sentryWebpackPluginOptions = {
   //   release, url, org, project, authToken, configFile, stripPrefix,
   //   urlPrefix, include, ignore
 
-  // NOTE: Even though the auto-generated comment directly above
-  // says not to, it seems like we have to add it
-  // See: https://github.com/getsentry/sentry-webpack-plugin/issues/334
-  // authToken: 'foo',
-
   silent: true // Suppresses all logs
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
