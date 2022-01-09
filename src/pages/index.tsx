@@ -6,7 +6,16 @@ type FooProps = {
   bar: string
 }
 
-const FooBar = ({ name }: FooProps) => <a href="/foo" target="_blank">{`hey, ${name}`}</a>
+const FooBar = ({ name }: FooProps) => (
+  <button
+    type="button"
+    onClick={() => {
+      throw new Error('Sentry Frontend Error')
+    }}
+  >
+    {`Throw error, ${name}`}
+  </button>
+)
 
 type IndexProps = {
   apple?: string
@@ -23,6 +32,7 @@ const Index = ({ apple, beta }: IndexProps) => {
 
   const handleClick = () => {
     console.log(`do it! ${apple} ${beta}`)
+    console.log(process.env.NEXT_PUBLIC_SENTRY_AUTH_TOKEN)
   }
 
   const handleKeyUp = () => {
