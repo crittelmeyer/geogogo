@@ -1,6 +1,7 @@
 import { useUser } from '@auth0/nextjs-auth0'
 import Head from 'next/head'
-import Link from 'next/link'
+
+import { Link } from 'components'
 
 const Index = () => {
   const { error, isLoading } = useUser()
