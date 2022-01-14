@@ -6,6 +6,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "prepare": "husky install",
+    "server": "yarn build && NODE_ENV=production node server.js",
     "start": "next start"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "@mui/material": "^5.2.8",
     "framer-motion": "^5.6.0",
     "next": "latest",
+    "next-pwa": "^5.4.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-ga4": "^1.4.1",
@@ -37,6 +39,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "express": "^4.17.2",
     "husky": "^7.0.4",
     "lint-staged": "^11.1.4",
     "prettier": "2.5.1",

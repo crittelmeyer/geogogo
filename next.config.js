@@ -3,12 +3,14 @@
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
+const withPWA = require('next-pwa')
 const { withSentryConfig } = require('@sentry/nextjs')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 })
 
-const moduleExports = withBundleAnalyzer({})
+const withBundleAnalyzerExport = withBundleAnalyzer({})
+const withPWAExport = withPWA(withBundleAnalyzerExport)
 
 const sentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
@@ -17,11 +19,19 @@ const sentryWebpackPluginOptions = {
   //   release, url, org, project, authToken, configFile, stripPrefix,
   //   urlPrefix, include, ignore
 
-  silent: true // Suppresses all logs
+  silent: true, // Suppresses all logs
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
+
+  pwa: {
+    dest: 'public',
+    disable: process.env.NODE_ENV === 'development',
+    modifyURLPrefix: {
+      '../public': ''
+    }
+  }
 }
 
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
-module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions)
+module.exports = withSentryConfig(withPWAExport, sentryWebpackPluginOptions)

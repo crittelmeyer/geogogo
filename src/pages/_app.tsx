@@ -2,6 +2,7 @@ import { UserProvider } from '@auth0/nextjs-auth0'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import { CacheProvider } from '@emotion/react'
 import createCache from '@emotion/cache'
+import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import type { EmotionCache } from '@emotion/cache'
 
@@ -17,16 +18,21 @@ export const createMuiCache = () =>
   }))
 
 const App = ({ Component, pageProps }: AppProps) => (
-  <CacheProvider value={muiCache ?? createMuiCache()}>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <UserProvider>
-        <TrackingProvider>
-          <Component {...pageProps} />
-        </TrackingProvider>
-      </UserProvider>
-    </ThemeProvider>
-  </CacheProvider>
+  <>
+    <Head>
+      <meta content="initial-scale=1, width=device-width" name="viewport" />
+    </Head>
+    <CacheProvider value={muiCache ?? createMuiCache()}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <UserProvider>
+          <TrackingProvider>
+            <Component {...pageProps} />
+          </TrackingProvider>
+        </UserProvider>
+      </ThemeProvider>
+    </CacheProvider>
+  </>
 )
 
 export default App
