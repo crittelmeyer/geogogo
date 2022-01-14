@@ -4,6 +4,7 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 const withPWA = require('next-pwa')
+const runtimeCaching = require('next-pwa/cache')
 const { withSentryConfig } = require('@sentry/nextjs')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
@@ -25,10 +26,9 @@ const sentryWebpackPluginOptions = {
 
   pwa: {
     dest: 'public',
-    disable: process.env.NODE_ENV === 'development',
-    modifyURLPrefix: {
-      '../public': ''
-    }
+    // disable: process.env.NODE_ENV === 'development'
+    runtimeCaching,
+    buildExcludes: [/middleware-manifest\.json$/]
   }
 }
 
