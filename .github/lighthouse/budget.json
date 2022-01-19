@@ -4,11 +4,11 @@
 		"timings": [
 			{
 				"metric": "interactive",
-				"budget": 3000
+				"budget": 3500
 			},
 			{
 				"metric": "first-contentful-paint",
-				"budget": 1800
+				"budget": 2200
 			},
 			{
 				"metric": "cumulative-layout-shift",
@@ -16,29 +16,29 @@
 			},
 			{
 				"metric": "total-blocking-time",
-				"budget": 200
+				"budget": 300
 			},
 			{
 				"metric": "largest-contentful-paint",
-				"budget": 3500
+				"budget": 3800
 			},
 			{
 				"metric": "speed-index",
-				"budget": 3500
+				"budget": 3800
 			}
 		],
 		"resourceSizes": [
 			{
 				"resourceType": "script",
-				"budget": 100
+				"budget": 150
 			},
 			{
 				"resourceType": "total",
-				"budget": 400
+				"budget": 450
 			},
 			{
 				"resourceType": "image",
-				"budget": 300
+				"budget": 320
 			}
 		],
 		"resourceCounts": [
