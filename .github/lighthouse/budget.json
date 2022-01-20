@@ -20,7 +20,7 @@
 			},
 			{
 				"metric": "largest-contentful-paint",
-				"budget": 3800
+				"budget": 5000
 			},
 			{
 				"metric": "speed-index",
