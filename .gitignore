@@ -31,3 +31,9 @@ yarn-error.log*
 
 # Sentry
 .sentryclirc
+
+# next-pwa
+**/public/fallback-*.js*
+**/public/workbox-*.js*
+**/public/sw.js*
+**/public/worker-*.js*

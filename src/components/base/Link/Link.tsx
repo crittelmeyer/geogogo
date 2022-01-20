@@ -1,6 +1,6 @@
 import React, { forwardRef, Ref } from 'react'
 import NextLink from 'next/link'
-import { Link as MuiLink } from '@mui/material'
+import { Link as MuiLink, Typography } from '@mui/material'
 import type { LinkProps as NextLinkProps } from 'next/link'
 
 import { useTracking } from 'contexts'
@@ -31,7 +31,7 @@ const Link = (
   return (
     <NextLink passHref as={as} href={href} prefetch={prefetch}>
       <MuiLink ref={ref} onClick={handleClick} {...props}>
-        {children}
+        <Typography>{children}</Typography>
       </MuiLink>
     </NextLink>
   )

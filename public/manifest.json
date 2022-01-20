@@ -1,0 +1,46 @@
+{
+  "short_name": "GeoGoGo",
+  "name": "GeoGoGo: Borderless Learning",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/?utm_source=pwa",
+  "id": "/?utm_source=pwa",
+  "background_color": "#ffc93c",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "scope": "/?utm_source=pwa",
+  "theme_color": "#ffc93c",
+  "shortcuts": [
+    {
+      "name": "Learn geography",
+      "short_name": "Learn!",
+      "description": "Learn geography and have fun doing it",
+      "url": "/?utm_source=pwa",
+      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "description": "Learn geography and have fun doing it",
+  "screenshots": [
+    {
+      "src": "/screenshot-320x320.png",
+      "type": "image/png",
+      "sizes": "320x320"
+    }
+  ]
+}
