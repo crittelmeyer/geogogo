@@ -24,7 +24,8 @@ module.exports = withSentryConfig(
     ]
   ]),
   {
-    silent: true
+    silent: true,
+    swcMinify: true
     // TODO: enable once next.js support top-level awaits, then update src/contexts/tracking.tsx react-ga4 import
     // experiments: {
     //   topLevelAwait: true
