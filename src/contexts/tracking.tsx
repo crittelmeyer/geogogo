@@ -3,6 +3,9 @@ import { useUser } from '@auth0/nextjs-auth0'
 import { useRouter } from 'next/router'
 import ReactGA from 'react-ga4'
 
+// TODO: enable once next.js supports top-level await
+// const ReactGA = (await import('react-ga4')).default
+
 import type { Event, TrackingProviderProps } from './tracking.d'
 
 const TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS

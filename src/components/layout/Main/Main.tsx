@@ -40,36 +40,38 @@ const Main = ({ children }: MainProps) => {
       <Head>
         <title>{'GeoGoGo - Borderless Learning'}</title>
       </Head>
-      <AppBar color="secondary" position="sticky">
-        <Toolbar>
-          <Typography noWrap component="div" variant="h6">
-            {'GeoGoGo'}
-          </Typography>
-          <div className={classes.menu}>
-            <Link className={classes.link} href="/" tracking={{ category: 'header' }}>
-              {'Home'}
-            </Link>
-            <Link className={classes.link} href="/test" tracking={{ category: 'header' }}>
-              {'Test'}
-            </Link>
-          </div>
-          <div className={classes.user}>
-            {user ? (
-              <>
-                {`Welcome my friend, ${user.name}! `}
-
-                <Link href="/api/auth/logout" tracking={{ category: 'header' }}>
-                  {'Logout'}
-                </Link>
-              </>
-            ) : (
-              <Link href="/api/auth/login" tracking={{ category: 'header' }}>
-                {'Login'}
+      <header>
+        <AppBar color="secondary" position="sticky">
+          <Toolbar>
+            <Typography noWrap component="div" variant="h6">
+              {'GeoGoGo'}
+            </Typography>
+            <div className={classes.menu}>
+              <Link className={classes.link} href="/" tracking={{ category: 'header' }}>
+                {'Home'}
               </Link>
-            )}
-          </div>
-        </Toolbar>
-      </AppBar>
+              <Link className={classes.link} href="/test" tracking={{ category: 'header' }}>
+                {'Test'}
+              </Link>
+            </div>
+            <div className={classes.user}>
+              {user ? (
+                <>
+                  {`Welcome my friend, ${user.name}! `}
+
+                  <Link href="/api/auth/logout" tracking={{ category: 'header' }}>
+                    {'Logout'}
+                  </Link>
+                </>
+              ) : (
+                <Link href="/api/auth/login" tracking={{ category: 'header' }}>
+                  {'Login'}
+                </Link>
+              )}
+            </div>
+          </Toolbar>
+        </AppBar>
+      </header>
       <LazyMotion features={domAnimation}>
         <m.div
           animate="enter" // Animated state to variants.enter
