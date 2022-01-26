@@ -1,3 +1,4 @@
+import { isEmpty } from './lang'
 import { makeStyles } from './styles'
 
-export { makeStyles }
+export { isEmpty, makeStyles }

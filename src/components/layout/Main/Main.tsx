@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography } from '@mui/material'
+import { Container, AppBar, Toolbar, Typography } from '@mui/material'
 import { useUser } from '@auth0/nextjs-auth0'
 import Head from 'next/head'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
@@ -9,6 +9,7 @@ import { Link } from 'components/base'
 
 type MainProps = {
   children: JSX.Element | JSX.Element[] | string | string[]
+  className?: string
 }
 
 const variants = {
@@ -28,7 +29,7 @@ const useStyles = makeStyles({ name: 'MainLayout' })((theme) => ({
   }
 }))
 
-const Main = ({ children }: MainProps) => {
+const Main = ({ children, className }: MainProps) => {
   const { classes } = useStyles()
   const { user, error, isLoading } = useUser()
 
@@ -81,7 +82,7 @@ const Main = ({ children }: MainProps) => {
           transition={{ type: 'linear' }} // Set the transition to linear
           variants={variants} // Pass the variant object into Framer Motion
         >
-          {children}
+          <Container className={className}>{children}</Container>
         </m.div>
       </LazyMotion>
     </>
