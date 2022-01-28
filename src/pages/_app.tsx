@@ -1,13 +1,16 @@
 import { UserProvider } from '@auth0/nextjs-auth0'
-import { ThemeProvider, CssBaseline } from '@mui/material'
 import { CacheProvider } from '@emotion/react'
 import createCache from '@emotion/cache'
-import Head from 'next/head'
+import { ThemeProvider, CssBaseline } from '@mui/material'
+import { appWithTranslation } from 'next-i18next'
 import type { AppProps } from 'next/app'
 import type { EmotionCache } from '@emotion/cache'
 
-import { TrackingProvider } from 'contexts'
+import Head from 'next/head'
+
 import { theme } from 'styles'
+
+import { TrackingProvider } from 'contexts'
 
 let muiCache: EmotionCache | undefined = undefined
 
@@ -35,4 +38,4 @@ const App = ({ Component, pageProps }: AppProps) => (
   </>
 )
 
-export default App
+export default appWithTranslation(App)

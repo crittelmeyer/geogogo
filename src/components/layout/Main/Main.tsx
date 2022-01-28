@@ -1,9 +1,12 @@
-import { Container, AppBar, Toolbar, Typography } from '@mui/material'
 import { useUser } from '@auth0/nextjs-auth0'
-import Head from 'next/head'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { useRouter } from 'next/router'
+import type { SelectChangeEvent } from '@mui/material'
 
 import { makeStyles } from 'utils'
+
+import Head from 'next/head'
+import { AppBar, Container, FormControl, InputLabel, MenuItem, Select, Toolbar, Typography } from '@mui/material'
 
 import { Link } from 'components/base'
 
@@ -24,6 +27,7 @@ const useStyles = makeStyles({ name: 'MainLayout' })((theme) => ({
     flexGrow: 1
   },
   link: { marginLeft: theme.spacing(1) },
+  language: { width: 200 },
   user: {
     flexGrow: 0
   }
@@ -32,6 +36,11 @@ const useStyles = makeStyles({ name: 'MainLayout' })((theme) => ({
 const Main = ({ children, className }: MainProps) => {
   const { classes } = useStyles()
   const { user, error, isLoading } = useUser()
+  const router = useRouter()
+
+  const handleChange = (event: SelectChangeEvent) => {
+    router.push(router.asPath, null, { locale: event.target.value })
+  }
 
   if (isLoading) return <div>{'Loading...'}</div>
   if (error) return <div>{error.message}</div>
@@ -55,6 +64,20 @@ const Main = ({ children, className }: MainProps) => {
                 {'Test'}
               </Link>
             </div>
+            <FormControl size="small">
+              <InputLabel id="demo-simple-select-label">{'Site Language'}</InputLabel>
+              <Select
+                className={classes.language}
+                id="select-language"
+                label="Site Language"
+                labelId="select-language"
+                value={router.locale}
+                onChange={handleChange}
+              >
+                <MenuItem value="en">{'English'}</MenuItem>
+                <MenuItem value="es">{'Espanol'}</MenuItem>
+              </Select>
+            </FormControl>
             <div className={classes.user}>
               {user ? (
                 <>
