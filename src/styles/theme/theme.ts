@@ -1,26 +1,16 @@
-import { createTheme } from '@mui/material'
+import { createTheme } from '@mui/material/styles'
 
-const SPACING_FACTOR = 8
-const BORDER_RADIUS = 8
+import { overrides } from './overrides'
+import { palette } from './palette'
+import { typography } from './typography'
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#0000ff'
-    },
-    secondary: {
-      main: '#00ff00'
-    },
-    text: {
-      primary: '#0f0f0f',
-      secondary: '#f0f0f0'
-    },
-    error: {
-      main: '#0000ff'
-    }
-  },
+export const BORDER_RADIUS = 8
+export const SPACING_FACTOR = 8
+
+export const theme = createTheme({
+  palette,
   spacing: SPACING_FACTOR,
-  shape: { borderRadius: BORDER_RADIUS }
+  shape: { borderRadius: BORDER_RADIUS },
+  typography,
+  ...overrides
 })
-
-export default theme

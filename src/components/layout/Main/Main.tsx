@@ -1,14 +1,23 @@
-import { AppBar, Toolbar, Typography } from '@mui/material'
 import { useUser } from '@auth0/nextjs-auth0'
-import Head from 'next/head'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
+import type { SelectChangeEvent } from '@mui/material'
 
 import { makeStyles } from 'utils'
+
+import type { Select as SelectType } from '@mui/material'
+
+import Head from 'next/head'
+import { AppBar, Container, FormControl, InputLabel, MenuItem, Toolbar, Typography } from '@mui/material'
+
+const Select = dynamic(() => import('@mui/material').then((module) => module.Select as any)) as typeof SelectType
 
 import { Link } from 'components/base'
 
 type MainProps = {
   children: JSX.Element | JSX.Element[] | string | string[]
+  className?: string
 }
 
 const variants = {
@@ -23,14 +32,20 @@ const useStyles = makeStyles({ name: 'MainLayout' })((theme) => ({
     flexGrow: 1
   },
   link: { marginLeft: theme.spacing(1) },
+  language: { width: 200 },
   user: {
     flexGrow: 0
   }
 }))
 
-const Main = ({ children }: MainProps) => {
+const Main = ({ children, className }: MainProps) => {
   const { classes } = useStyles()
   const { user, error, isLoading } = useUser()
+  const router = useRouter()
+
+  const handleChange = (event: SelectChangeEvent) => {
+    router.push(router.asPath, null, { locale: event.target.value })
+  }
 
   if (isLoading) return <div>{'Loading...'}</div>
   if (error) return <div>{error.message}</div>
@@ -54,6 +69,20 @@ const Main = ({ children }: MainProps) => {
                 {'Test'}
               </Link>
             </div>
+            <FormControl size="small">
+              <InputLabel id="demo-simple-select-label">{'Site Language'}</InputLabel>
+              <Select
+                className={classes.language}
+                id="select-language"
+                label="Site Language"
+                labelId="select-language"
+                value={router.locale}
+                onChange={handleChange}
+              >
+                <MenuItem value="en">{'English'}</MenuItem>
+                <MenuItem value="es">{'Espanol'}</MenuItem>
+              </Select>
+            </FormControl>
             <div className={classes.user}>
               {user ? (
                 <>
@@ -81,7 +110,7 @@ const Main = ({ children }: MainProps) => {
           transition={{ type: 'linear' }} // Set the transition to linear
           variants={variants} // Pass the variant object into Framer Motion
         >
-          {children}
+          <Container className={className}>{children}</Container>
         </m.div>
       </LazyMotion>
     </>
