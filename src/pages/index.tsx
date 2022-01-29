@@ -1,6 +1,7 @@
 import { makeStyles } from 'utils'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import dynamic, { DynamicOptions } from 'next/dynamic'
 
 import { APP_BAR_HEIGHT } from 'styles'
 
@@ -8,7 +9,9 @@ import { Button, Typography } from '@mui/material'
 import Link from 'next/link'
 
 import { Main } from 'components/layout'
-import { PixelWorldMap } from 'components/base'
+import type { PixelWorldMapProps } from 'components/base/PixelWorldMap/PixelWorldMap.d'
+
+const PixelWorldMap = dynamic<PixelWorldMapProps>(import('components/base/PixelWorldMap') as DynamicOptions<{}>, {})
 
 const useStyles = makeStyles({
   name: 'Index'

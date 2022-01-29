@@ -1,12 +1,17 @@
 import { useUser } from '@auth0/nextjs-auth0'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 import type { SelectChangeEvent } from '@mui/material'
 
 import { makeStyles } from 'utils'
 
+import type { Select as SelectType } from '@mui/material'
+
 import Head from 'next/head'
-import { AppBar, Container, FormControl, InputLabel, MenuItem, Select, Toolbar, Typography } from '@mui/material'
+import { AppBar, Container, FormControl, InputLabel, MenuItem, Toolbar, Typography } from '@mui/material'
+
+const Select = dynamic(() => import('@mui/material').then((module) => module.Select as any)) as typeof SelectType
 
 import { Link } from 'components/base'
 
