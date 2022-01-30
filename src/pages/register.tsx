@@ -1,8 +1,11 @@
 import { makeStyles } from 'utils'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import dynamic from 'next/dynamic'
 
-import { Main } from 'components/layout'
+// import { Main } from 'components/layout'
+
+const Main = dynamic(() => import('components/layout/Main'))
 
 const useStyles = makeStyles({
   name: 'Register'

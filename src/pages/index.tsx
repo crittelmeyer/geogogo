@@ -5,13 +5,15 @@ import dynamic, { DynamicOptions } from 'next/dynamic'
 
 import { APP_BAR_HEIGHT } from 'styles'
 
-import { Button, Typography } from '@mui/material'
+import Image from 'next/image'
 import Link from 'next/link'
+import type { ButtonProps } from '@mui/material/Button/Button.d'
+import type { TypographyProps } from '@mui/material/Typography/Typography.d'
 
-import { Main } from 'components/layout'
-import type { PixelWorldMapProps } from 'components/base/PixelWorldMap/PixelWorldMap.d'
+const Button = dynamic<ButtonProps>(import('@mui/Material/Button') as DynamicOptions<{}>, {})
+const Typography = dynamic<TypographyProps>(import('@mui/Material/Typography') as DynamicOptions<{}>, {})
 
-const PixelWorldMap = dynamic<PixelWorldMapProps>(import('components/base/PixelWorldMap') as DynamicOptions<{}>, {})
+const Main = dynamic(() => import('components/layout/Main'))
 
 const useStyles = makeStyles({
   name: 'Index'
@@ -19,16 +21,19 @@ const useStyles = makeStyles({
   root: {
     display: 'flex',
     height: `calc(100vh - ${APP_BAR_HEIGHT}px)`,
-    justifyContent: 'space-evenly',
-    paddingBottom: theme.spacing(16),
-    paddingTop: theme.spacing(16)
+    minHeight: 300,
+    alignItems: 'center',
+    justifyContent: 'space-evenly'
+  },
+  map: {
+    border: 'solid red 2px'
   },
   rightSide: {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around',
-    padding: theme.spacing(2, 0, 8)
+    height: 200,
+    justifyContent: 'space-around'
   }
 }))
 
@@ -38,7 +43,7 @@ const Index = () => {
 
   return (
     <Main className={classes.root}>
-      <PixelWorldMap animationPattern="diagonal" />
+      <Image alt="world map pixel art" className={classes.map} height={224} src="/images/PixelMap.png" width={445} />
 
       <div className={classes.rightSide}>
         <Typography>{t('hero')}</Typography>
