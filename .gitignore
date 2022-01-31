@@ -29,9 +29,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# Sentry
-.sentryclirc
-
 # next-pwa
 **/public/fallback-*.js*
 **/public/workbox-*.js*
