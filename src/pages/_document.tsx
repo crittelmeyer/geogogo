@@ -1,9 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import { withEmotionCache } from 'tss-react/nextJs'
-import { createMuiCache } from './_app'
-
-/* eslint-disable @next/next/no-page-custom-font */
 class AppDocument extends Document {
   render() {
     return (
@@ -53,9 +49,5 @@ class AppDocument extends Document {
     )
   }
 }
-/* eslint-enable @next/next/no-page-custom-font */
 
-export default withEmotionCache({
-  Document: AppDocument,
-  getCaches: () => [createMuiCache()]
-})
+export default AppDocument
