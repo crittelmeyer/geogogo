@@ -2,6 +2,9 @@ import { useUser } from '@auth0/nextjs-auth0'
 // import { useRouter } from 'next/router'
 
 import Head from 'next/head'
+// import Image from 'next/image'
+
+import { AppBar } from 'components/base'
 
 // import { Link } from 'components/base'
 
@@ -39,14 +42,14 @@ const Main = ({ children, className }: MainProps) => {
   if (error) return <div>{error.message}</div>
 
   return (
-    <>
+    <div className="flex h-screen flex-col">
       <Head>
         <title>{'GeoGoGo - Borderless Learning'}</title>
       </Head>
-      <header>
-        <h1 className="text-3xl font-bold underline">{'Header!'}</h1>
-        {/* <AppBar color="secondary" position="sticky">
-          <Toolbar>
+
+      <AppBar>
+        {'GeoGoGo'}
+        {/* <Toolbar>
             <Typography noWrap variant="h6">
               {'GeoGoGo'}
             </Typography>
@@ -87,9 +90,9 @@ const Main = ({ children, className }: MainProps) => {
                 </Link>
               )}
             </div>
-          </Toolbar>
-        </AppBar> */}
-      </header>
+          </Toolbar> */}
+      </AppBar>
+
       {/* <LazyMotion features={domAnimation}>
         <m.div
           animate="enter" // Animated state to variants.enter
@@ -99,10 +102,10 @@ const Main = ({ children, className }: MainProps) => {
           transition={{ type: 'linear' }} // Set the transition to linear
           variants={variants} // Pass the variant object into Framer Motion
         > */}
-      <div className={className}>{children}</div>
+      <div className={`${className} flex flex-grow`}>{children}</div>
       {/* </m.div>
       </LazyMotion> */}
-    </>
+    </div>
   )
 }
 
