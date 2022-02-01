@@ -17,14 +17,14 @@ const Index = () => {
       <Image alt="world map pixel art" height={224} src="/images/PixelMap.png" width={445} />
 
       <div className="flex flex-col items-center space-y-4">
-        <span className="font-bold">{t('hero')}</span>
+        <span className="hero-text font-bold">{t('hero')}</span>
         <Link passHref href="/register">
-          <button className="h-12 w-full rounded-lg border-2 border-double border-yellow-400 bg-yellow-100 px-4 shadow-sm shadow-yellow-900 hover:border-yellow-500 hover:bg-yellow-200 active:translate-y-0.5 active:shadow-transparent">
+          <button className="get-started h-12 w-full rounded-lg border-2 border-double border-yellow-400 bg-yellow-100 px-4 shadow-sm shadow-yellow-900 hover:border-yellow-500 hover:bg-yellow-200 active:translate-y-0.5 active:shadow-transparent">
             {'Get Started'}
           </button>
         </Link>
         <Link passHref href="/login">
-          <button className="h-12 w-full rounded-lg border-2 border-double border-slate-300 px-4 hover:border-slate-700">
+          <button className="have-account h-12 w-full rounded-lg border-2 border-double border-slate-300 px-4 hover:border-slate-700">
             {'I Already Have An Account'}
           </button>
         </Link>
