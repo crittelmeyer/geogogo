@@ -1,21 +1,16 @@
-import { makeStyles } from 'utils'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import dynamic from 'next/dynamic'
 
-import { Main } from 'components/layout'
+// import { Main } from 'components/layout'
 
-const useStyles = makeStyles({
-  name: 'Register'
-})((theme) => ({
-  root: {}
-}))
+const Main = dynamic(() => import('components/layout/Main'))
 
 const Register = () => {
-  const { classes } = useStyles()
   const { t } = useTranslation('register')
 
   return (
-    <Main className={classes.root}>
+    <Main>
       <div>{t('i-want-to-learn-about')}</div>
     </Main>
   )

@@ -1,15 +1,12 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import { withEmotionCache } from 'tss-react/nextJs'
-import { createMuiCache } from './_app'
-
-/* eslint-disable @next/next/no-page-custom-font */
 class AppDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Alata&display=optional" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=optional" rel="stylesheet" />
           <link href="/favicon.ico" rel="icon" />
           <link href="/manifest.json" rel="manifest" />
           <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
@@ -53,9 +50,5 @@ class AppDocument extends Document {
     )
   }
 }
-/* eslint-enable @next/next/no-page-custom-font */
 
-export default withEmotionCache({
-  Document: AppDocument,
-  getCaches: () => [createMuiCache()]
-})
+export default AppDocument
